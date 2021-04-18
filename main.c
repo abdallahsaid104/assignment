@@ -63,7 +63,7 @@ void insert_end (char* name,int ID , int day , int month , int year , float last
         tail=tail->next;
     }
 
-        student->next = NULL;
+        //student->next = NULL;
         tail->next = student;
         tail=student;
 
@@ -91,6 +91,13 @@ void insert_mid (char* name,int ID , int day , int month , int year , int last_y
 		// if list is not empty
 		// insert student in beginning of head
 		temp=head;
+
+		if (position==1)
+        {
+            insert_beginning( name, ID , day , month , year , last_year_score);
+        }
+
+
 		for (int i=0;i<position-2;i++)
         {
             temp=temp->next;
@@ -104,7 +111,6 @@ void insert_mid (char* name,int ID , int day , int month , int year , int last_y
 void display()
 {
     struct Student * temp = head;
-    struct Student * tem = tail;
     while(temp!=NULL ){
 
         printf("Name: %s\n", temp->name);
@@ -113,15 +119,7 @@ void display()
         printf("Birth Date: %d/%d/%d\n\n",temp->day,temp->month,temp->year);
         temp = temp->next;
     }
-    while (tem!=NULL)
-    {
-        printf("Name: %s\n", tem->name);
-        printf("ID: %d\n", tem->ID);
-        printf("Percentage: %d \n", tem->last_year_score);
-        printf("Birth Date: %d/%d/%d\n\n",tem->day,tem->month,tem->year);
-        tem= tem->next;
 
-    }
 
 
 
@@ -135,12 +133,12 @@ int main()
 
     insert_beginning("Sohila",1000,3,3,2001,83);
     insert_beginning("Abdallah",1001,10,4,2000,84);
-    insert_end("3abbas",999,2,8,1980,67);                     //Bug (Inserted twice )
+    insert_end("3abbas",999,2,8,1980,67);
     insert_beginning("Yara",1003,6,4,2006,80);
     insert_beginning("Menna",1004,19,11,2002,70);
     insert_beginning("Abdelaziz",1005,17,10,2000,88);
-    insert_mid("Salma",1002,15,6,2000,75,4);                 //Bug at Position 1
-    insert_end("3absame3",998,6,12,1986,69);                    ////Bug (Inserted twice )
+    insert_mid("Salma",1002,15,6,2000,75,4);
+    insert_end("3absame3",998,6,12,1986,69);
     display();
     return 0;
 }
