@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1618717394 source:f:\eece\year 2\semester 2\embedded systems\student\assignment\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
